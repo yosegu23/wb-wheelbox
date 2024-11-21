@@ -7,7 +7,8 @@ import { getUserByEmail } from "@/data/user"
 import { sendEmailNotification } from "@/lib/mail"
 
 export const sendEmail = async (values: z.infer<typeof SubmitEmail>) => {
-    const validateFields = SubmitEmail.safeParse(values);
+    try {
+        const validateFields = SubmitEmail.safeParse(values);
 
     if (!validateFields.success) {
         return { error: "Invalid fields!" }
@@ -26,8 +27,6 @@ export const sendEmail = async (values: z.infer<typeof SubmitEmail>) => {
             email,
         }
     });
-
-    try {
         await sendEmailNotification(email);
     } catch (error) {
         return { error: "Failed to send the email notification. Please try again." }

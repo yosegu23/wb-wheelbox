@@ -7,12 +7,16 @@ const domain = process.env.NEXT_PUBLIC_API_URL || "https://www.wheelbox.tech";
 export const sendEmailNotification = async (email: string) => {
   try {
     console.log("Sending email to:", email);
+    console.log("Domain used:", domain); // Log the domain being used
+    console.log("Using Resend API Key:", process.env.RESEND_API_KEY); // Log the API key for debugging
+
     const response = await resend.emails.send({
-      from: "dev.wheelbox@gmail.com",
+      from: "no-reply@wheelbox.tech",
       to: email,
       subject: "Thank You For Join With Us!",
       html: `<img src="${domain}/Assets/Images/Thankyou.png">`
     });
+
     console.log("Email sent successfully:", response);
   } catch (error: unknown) {
     // Type guard to handle different error shapes without using `any`
