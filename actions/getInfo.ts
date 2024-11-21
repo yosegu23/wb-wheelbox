@@ -7,30 +7,34 @@ import { getUserByEmail } from "@/data/user"
 import { sendEmailNotification } from "@/lib/mail"
 
 export const sendEmail = async (values: z.infer<typeof SubmitEmail>) => {
-    try {
-        const validateFields = SubmitEmail.safeParse(values);
+  try {
+    const validateFields = SubmitEmail.safeParse(values);
 
     if (!validateFields.success) {
-        return { error: "Invalid fields!" }
+      console.error("Validation error:", validateFields.error);
+      return { error: "Invalid fields!" };
     }
 
     const { email } = validateFields.data;
+    console.log("Email being validated:", email);
 
     const existingEmail = await getUserByEmail(email);
+    console.log("Existing email check result:", existingEmail);
 
     if (existingEmail) {
-        return { error: "Email is already sent before!" }
+      return { error: "Email is already sent before!" };
     }
 
-    await db.email.create({
-        data: {
-            email,
-        }
+    const createdEmail = await db.email.create({
+      data: { email },
     });
-        await sendEmailNotification(email);
-    } catch (error) {
-        return { error: "Failed to send the email notification. Please try again." }
-    }
+    console.log("Database entry created:", createdEmail);
 
-    return { success: "Thank you for being part of this journey with us. The best is yet to come!" }
-}
+    await sendEmailNotification(email);
+  } catch (error) {
+    console.error("Error in sendEmail function:", error);
+    return { error: "Failed to send the email notification. Please try again." };
+  }
+
+  return { success: "Thank you for being part of this journey with us. The best is yet to come!" };
+};

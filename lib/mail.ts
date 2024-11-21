@@ -7,25 +7,23 @@ const domain = process.env.NEXT_PUBLIC_API_URL || "https://www.wheelbox.tech";
 export const sendEmailNotification = async (email: string) => {
   try {
     console.log("Sending email to:", email);
-    console.log("Domain used:", domain); // Log the domain being used
-    console.log("Using Resend API Key:", process.env.RESEND_API_KEY); // Log the API key for debugging
+    console.log("Domain used:", domain);
+    console.log("Using Resend API Key:", process.env.RESEND_API_KEY);
 
     const response = await resend.emails.send({
-      from: "no-reply@wheelbox.tech",
+      from: "no-reply@wheelbox.tech", // Ensure domain is verified
       to: email,
       subject: "Thank You For Join With Us!",
-      html: `<img src="${domain}/Assets/Images/Thankyou.png">`
+      html: `<img src="${domain}/Assets/Images/Thankyou.png">`,
     });
 
     console.log("Email sent successfully:", response);
   } catch (error: unknown) {
-    // Type guard to handle different error shapes without using `any`
     if (error instanceof Error) {
-      console.error("Failed to send email:", error.message);
-      // Check if `error` contains a `response` object
+      console.error("Error in sendEmailNotification:", error.message);
       if ('response' in error) {
         const apiError = error as { response: { data: unknown } };
-        console.error("Resend API response:", apiError.response.data);
+        console.error("API Error Response:", apiError.response.data);
       }
     } else {
       console.error("Unknown error occurred:", error);
