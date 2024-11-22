@@ -11,7 +11,7 @@ export const sendEmailNotification = async (email: string) => {
     console.log("Using Resend API Key:", process.env.RESEND_API_KEY);
 
     const response = await resend.emails.send({
-      from: "no-reply@wheelbox.tech", // Ensure domain is verified
+      from: "info@wheelbox.tech",
       to: email,
       subject: "Thank You For Join With Us!",
       html: `<img src="${domain}/Assets/Images/Thankyou.png">`,
