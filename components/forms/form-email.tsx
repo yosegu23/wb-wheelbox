@@ -1,5 +1,3 @@
-"use client";
-
 import * as z from "zod";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -24,8 +22,10 @@ const FormEmail = () => {
 
     try {
       toastId = toast.loading("Sending email...");
+      console.log("Submitting form with values:", values);
 
       const result = await sendEmail(values);
+      console.log("Result from server action:", result);
 
       if (result.success) {
         toast.success(result.message || "Email sent successfully! 🎉", {
@@ -36,6 +36,8 @@ const FormEmail = () => {
         toast.error(result.error || "An error occurred", { id: toastId });
       }
     } catch (error: unknown) {
+      console.error("Unexpected error during submission:", error);
+
       if (error instanceof Error) {
         toast.error(error.message || "Unexpected error occurred.", {
           id: toastId,
