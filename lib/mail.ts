@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY) || `re_PiJuNRej_C1eSyxFvgN1QqSFgqS6HKfak`;
+const resend = new Resend(process.env.RESEND_API_KEY) || `re_iUCywToY_8sJ8HP3DZLsgdQEkTLtu7vjA`;
 
 const domain = process.env.NEXT_PUBLIC_API_URL || "https://www.wheelbox.tech";
 
