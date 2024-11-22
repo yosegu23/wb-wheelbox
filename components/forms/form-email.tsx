@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 
-import React, { startTransition, useTransition } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitEmail } from "@/schemas";
@@ -13,8 +13,6 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { toast, Toaster } from "react-hot-toast";
 
 const FormEmail = () => {
-  const [isPending] = useTransition();
-
   const form = useForm<z.infer<typeof SubmitEmail>>({
     resolver: zodResolver(SubmitEmail),
     defaultValues: {
@@ -22,28 +20,20 @@ const FormEmail = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof SubmitEmail>) => {
-    startTransition(() => {
-      toast
-        .promise(
-          sendEmail(values),
-          {
-            loading: "Sending email...",
-            success: <b>Email sent successfully! 🎉</b>,
-            error: <b>Could not send email. Please try again.</b>,
-          },
-          {
-            style: {
-              borderRadius: "10px",
-              background: "#333",
-              color: "#fff",
-            },
-          }
-        )
-        .then(() => {
-          form.reset();
-        });
-    });
+  const onSubmit = async (values: z.infer<typeof SubmitEmail>) => {
+    let toastId: string | undefined;
+
+    try {
+      const toastId = toast.loading("Sending email...");
+
+      await sendEmail(values);
+
+      toast.success("Email sent successfully! 🎉", { id: toastId });
+      form.reset();
+    } catch (error: unknown) {
+      console.error("Error sending email:", error);
+      toast.error("Could not send email. Please try again.", { id: toastId });
+    }
   };
   return (
     <>
@@ -65,13 +55,13 @@ const FormEmail = () => {
                         className="pe-10 dark:text-white"
                         placeholder="Fill your email.."
                         type="email"
-                        disabled={isPending}
+                        disabled={form.formState.isSubmitting}
                       />
                       <button
                         className="absolute inset-y-0 end-[-24px] flex h-full w-20 items-center justify-center rounded-e-lg border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
                         aria-label="Subscribe"
                         type="submit"
-                        disabled={isPending}
+                        disabled={form.formState.isSubmitting}
                       >
                         <Send size={16} strokeWidth={2} aria-hidden="true" />
                       </button>
