@@ -1,34 +1,32 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY) || `re_iUCywToY_8sJ8HP3DZLsgdQEkTLtu7vjA`;
-
+const resend = new Resend(process.env.RESEND_API_KEY);
 const domain = process.env.NEXT_PUBLIC_API_URL || "https://www.wheelbox.tech";
 
 export const sendEmailNotification = async (email: string) => {
   try {
+    if (!resend || !process.env.RESEND_API_KEY) {
+      throw new Error("Missing API Key for Resend");
+    }
+
     console.log("Sending email to:", email);
-    console.log("Domain used:", domain);
-    console.log("API Key:", process.env.RESEND_API_KEY);
-    console.log("Domain:", process.env.NEXT_PUBLIC_API_URL);
 
     const response = await resend.emails.send({
       from: "info@wheelbox.tech",
       to: email,
-      subject: "Thank You For Join With Us!",
+      subject: "Thank You For Joining Us!",
       html: `<img src="${domain}/Assets/Images/Thankyou.png">`,
     });
 
     console.log("Email sent successfully:", response);
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error("Error in sendEmailNotification:", error.message);
-      if ('response' in error) {
-        const apiError = error as { response: { data: unknown } };
-        console.error("API Error Response:", apiError.response.data);
-      }
-    } else {
-      console.error("Unknown error occurred:", error);
+  } catch (error: any) {
+    console.error("Error in sendEmailNotification:", error);
+
+    // If the error is from the Resend API, log it more specifically
+    if ('response' in error && error.response) {
+      console.error("API Error Response:", error.response.data);
     }
+
     throw new Error("Email sending failed");
   }
 };

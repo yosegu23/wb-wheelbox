@@ -1,7 +1,6 @@
 "use client";
 
 import * as z from "zod";
-
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -24,17 +23,16 @@ const FormEmail = () => {
     let toastId: string | undefined;
 
     try {
-      const toastId = toast.loading("Sending email...");
-
+      toastId = toast.loading("Sending email...");
       await sendEmail(values);
-
       toast.success("Email sent successfully! 🎉", { id: toastId });
       form.reset();
-    } catch (error: unknown) {
+    } catch (error) {
       console.error("Error sending email:", error);
       toast.error("Could not send email. Please try again.", { id: toastId });
     }
   };
+
   return (
     <>
       <Toaster position="top-center" reverseOrder={true} />
