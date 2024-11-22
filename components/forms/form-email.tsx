@@ -35,10 +35,14 @@ const FormEmail = () => {
       } else {
         toast.error(result.error || "An error occurred", { id: toastId });
       }
-    } catch (error) {
-      toast.error("Unexpected error occurred. Please try again.", {
-        id: toastId,
-      });
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast.error(error.message || "Unexpected error occurred.", {
+          id: toastId,
+        });
+      } else {
+        toast.error("An unexpected error occurred.", { id: toastId });
+      }
     }
   };
 
