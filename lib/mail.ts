@@ -8,7 +8,8 @@ export const sendEmailNotification = async (email: string) => {
   try {
     console.log("Sending email to:", email);
     console.log("Domain used:", domain);
-    console.log("Using Resend API Key:", process.env.RESEND_API_KEY);
+    console.log("API Key:", process.env.RESEND_API_KEY);
+    console.log("Domain:", process.env.NEXT_PUBLIC_API_URL);
 
     const response = await resend.emails.send({
       from: "info@wheelbox.tech",
