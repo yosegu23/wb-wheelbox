@@ -27,9 +27,35 @@ const FormEmail = () => {
       await sendEmail(values);
       toast.success("Email sent successfully! 🎉", { id: toastId });
       form.reset();
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Error sending email:", error);
-      toast.error("Could not send email. Please try again.", { id: toastId });
+
+      if (error instanceof Error) {
+        toast.error(
+          `Error: ${
+            error.message || "Could not send email. Please try again."
+          }`,
+          { id: toastId }
+        );
+      } else if (error && typeof error === "object" && "response" in error) {
+        const apiError = error as { response?: { data: unknown } };
+
+        if (apiError.response) {
+          console.error("API Error Response:", apiError.response.data);
+          toast.error(`API Error: ${JSON.stringify(apiError.response.data)}`, {
+            id: toastId,
+          });
+        } else {
+          console.error("Unknown API error occurred:", apiError);
+          toast.error("An unexpected error occurred. Please try again.", {
+            id: toastId,
+          });
+        }
+      } else {
+        toast.error("Unknown error occurred. Please try again.", {
+          id: toastId,
+        });
+      }
     }
   };
 

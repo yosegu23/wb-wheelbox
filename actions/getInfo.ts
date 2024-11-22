@@ -23,8 +23,9 @@ export const sendEmail = async (values: z.infer<typeof SubmitEmail>) => {
     }
 
     try {
+      console.log('Creating email:', email);
       const createdEmail = await db.email.create({
-        data: { email },
+        data: { email: email },  // Don't include `id: null`
       });
       console.log("Database entry created:", createdEmail);
     } catch (dbError) {
