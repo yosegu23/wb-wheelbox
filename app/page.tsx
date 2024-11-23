@@ -55,7 +55,7 @@ export default function Home() {
       </motion.div>
       <p className="absolute bottom-7 sm:bottom-8 inset-x-0 text-center text-sm text-gray-300">
         © 2024-2025 All Right Reserved by
-        <span className="font-extrabold text-white text-sm">WheelBox</span>.
+        <span className="font-extrabold text-white text-sm"> WheelBox</span>.
       </p>
     </AuroraBackground>
   );
