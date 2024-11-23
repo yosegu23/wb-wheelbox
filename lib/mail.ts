@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+import { Resend } from "resend"
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const domain = process.env.NEXT_PUBLIC_API_URL || "https://www.wheelbox.tech";
@@ -58,7 +58,7 @@ export const sendEmailNotification = async (email: string) => {
       </div>
     `;
 
-    const response = await resend.emails.send({
+    await resend.emails.send({
       from: "info@wheelbox.tech",
       to: email,
       subject: "Thank You For Joining Us!",
