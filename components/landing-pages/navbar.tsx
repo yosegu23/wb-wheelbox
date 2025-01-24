@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import LogoWheelbox from "@/public/assets/WheelBox_LogoHorizontal_WithoutBg.svg";
+import LogoWheelbox from "@/public/Assets/WheelBox_LogoHorizontal_WithoutBg.svg";
 import InteractiveHoverButton from "../ui/interactive-hover-button";
 import UsersThree from "@/public/Icons/users-three.svg";
 import Checks from "@/public/Icons/checks.svg";
