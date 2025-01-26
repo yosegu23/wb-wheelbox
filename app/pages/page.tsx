@@ -1,7 +1,9 @@
 "use client";
 
+import About from "@/components/landing-pages/about";
 import HeroSections from "@/components/landing-pages/hero-sections";
 import { NavbarDemo } from "@/components/landing-pages/navbar";
+import ScrollText from "@/components/landing-pages/scroll-text";
 import React from 'react'
 
 export default function page() {
@@ -10,6 +12,8 @@ export default function page() {
       <div className="w-full h-auto">
         <NavbarDemo />
         <HeroSections />
+        <ScrollText />
+        <About />
       </div>
     </>
   )
