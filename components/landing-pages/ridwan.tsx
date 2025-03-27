@@ -50,14 +50,14 @@ export default function Ridwan() {
         <div>
           <MouseIcon className="h-6 w-6" />
           <div className="flex flex-col ml-4 mt-1 rounded-[4px] bg-[rgba(255,255,255,0.1)] px-2 py-0.5 text-neutral-50 backdrop-blur-md shadow-md">
-            <span>Muhammad Ridwan Riswandi</span>
+            <span>Ridwan Maulana</span>
             <span>🤩 UI/UX</span>
           </div>
         </div>
       </Cursor>
       <Image
         src={RidwanRiswandi}
-        alt="Muhammad Ridwan Riswandi"
+        alt="Ridwan Maulana"
         className="grayscale hover:grayscale-0 transition"
       />
     </div>

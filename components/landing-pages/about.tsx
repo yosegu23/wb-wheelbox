@@ -16,7 +16,7 @@ export default function About() {
   const theme = useTheme();
   const shadowColor = theme.resolvedTheme === "dark" ? "white" : "black";
   return (
-    <div className="relative w-full h-auto bg-black flex flex-col items-center justify-center pt-4">
+    <div className="relative w-full h-auto bg-black flex flex-col items-center justify-center pt-8">
       {/* Heading */}
       <div className="flex flex-col items-center justify-center space-y-4">
         <AnimatedGradientText>

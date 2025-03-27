@@ -1,6 +1,7 @@
 "use client";
 
 import About from "@/components/landing-pages/about";
+import { AboutCompany } from "@/components/landing-pages/about-company";
 import HeroSections from "@/components/landing-pages/hero-sections";
 import { NavbarDemo } from "@/components/landing-pages/navbar";
 import ScrollText from "@/components/landing-pages/scroll-text";
@@ -14,6 +15,7 @@ export default function page() {
         <HeroSections />
         <ScrollText />
         <About />
+        <AboutCompany />
       </div>
     </>
   )
