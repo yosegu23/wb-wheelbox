@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import { useRef, useEffect } from "react"
 import { cn } from "@/lib/utils"
 
@@ -22,17 +23,41 @@ interface WavesProps {
   className?: string
 }
 
+interface Point {
+  x: number;
+  y: number;
+  wave: {
+    x: number;
+    y: number;
+  };
+  cursor: {
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+  };
+}
+
 class Grad {
-  constructor(x, y, z) {
+  x: number
+  y: number
+  z: number
+
+  constructor(x: number, y: number, z: number) {
     this.x = x
     this.y = y
     this.z = z
   }
-  dot2(x, y) {
+  dot2(x: number, y: number) {
     return this.x * x + this.y * y
   }
 }
 class Noise {
+  grad3: Grad[]
+  p: number[]
+  perm: number[]
+  gradP: Grad[]
+
   constructor(seed = 0) {
     this.grad3 = [
       new Grad(1, 1, 0),
@@ -70,7 +95,7 @@ class Noise {
     this.gradP = new Array(512)
     this.seed(seed)
   }
-  seed(seed) {
+  seed(seed: number): void {
     if (seed > 0 && seed < 1) seed *= 65536
     seed = Math.floor(seed)
     if (seed < 256) seed |= seed << 8
@@ -80,13 +105,13 @@ class Noise {
       this.gradP[i] = this.gradP[i + 256] = this.grad3[v % 12]
     }
   }
-  fade(t) {
+  fade(t: number): number {
     return t * t * t * (t * (t * 6 - 15) + 10)
   }
-  lerp(a, b, t) {
+  lerp(a: number, b: number, t: number): number {
     return (1 - t) * a + t * b
   }
-  perlin2(x, y) {
+  perlin2(x: number, y: number): number {
     let X = Math.floor(x),
       Y = Math.floor(y)
     x -= X
@@ -120,12 +145,12 @@ export function Waves({
   maxCursorMove = 100,
   className,
 }: WavesProps) {
-  const containerRef = useRef(null)
-  const canvasRef = useRef(null)
-  const ctxRef = useRef(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const ctxRef = useRef<CanvasRenderingContext2D | null>(null)
   const boundingRef = useRef({ width: 0, height: 0, left: 0, top: 0 })
   const noiseRef = useRef(new Noise(Math.random()))
-  const linesRef = useRef([])
+  const linesRef = useRef<Point[][]>([])
   const mouseRef = useRef({
     x: -10,
     y: 0,
@@ -142,12 +167,18 @@ export function Waves({
   useEffect(() => {
     const canvas = canvasRef.current
     const container = containerRef.current
-    ctxRef.current = canvas.getContext("2d")
+    if (canvas) {
+      ctxRef.current = canvas.getContext("2d")
+    }
 
     function setSize() {
-      boundingRef.current = container.getBoundingClientRect()
-      canvas.width = boundingRef.current.width
-      canvas.height = boundingRef.current.height
+      if (container) {
+        boundingRef.current = container.getBoundingClientRect()
+      }
+      if (canvas) {
+        canvas.width = boundingRef.current.width
+        canvas.height = boundingRef.current.height
+      }
     }
 
     function setLines() {
@@ -173,7 +204,7 @@ export function Waves({
       }
     }
 
-    function movePoints(time) {
+    function movePoints(time: number) {
       const lines = linesRef.current
       const mouse = mouseRef.current
       const noise = noiseRef.current
@@ -217,7 +248,7 @@ export function Waves({
       })
     }
 
-    function moved(point, withCursor = true) {
+    function moved(point: Point, withCursor = true) {
       const x = point.x + point.wave.x + (withCursor ? point.cursor.x : 0)
       const y = point.y + point.wave.y + (withCursor ? point.cursor.y : 0)
       return { x: Math.round(x * 10) / 10, y: Math.round(y * 10) / 10 }
@@ -226,27 +257,29 @@ export function Waves({
     function drawLines() {
       const { width, height } = boundingRef.current
       const ctx = ctxRef.current
-      ctx.clearRect(0, 0, width, height)
-      ctx.beginPath()
-      ctx.strokeStyle = lineColor
-      linesRef.current.forEach((points) => {
-        let p1 = moved(points[0], false)
-        ctx.moveTo(p1.x, p1.y)
-        points.forEach((p, idx) => {
-          const isLast = idx === points.length - 1
-          p1 = moved(p, !isLast)
-          const p2 = moved(
-            points[idx + 1] || points[points.length - 1],
-            !isLast,
-          )
-          ctx.lineTo(p1.x, p1.y)
-          if (isLast) ctx.moveTo(p2.x, p2.y)
+      if (ctx) {
+        ctx.clearRect(0, 0, width, height)
+        ctx.beginPath()
+        ctx.strokeStyle = lineColor
+        linesRef.current.forEach((points) => {
+          let p1 = moved(points[0], false)
+          ctx.moveTo(p1.x, p1.y)
+          points.forEach((p, idx) => {
+            const isLast = idx === points.length - 1
+            p1 = moved(p, !isLast)
+            const p2 = moved(
+              points[idx + 1] || points[points.length - 1],
+              !isLast,
+            )
+            ctx.lineTo(p1.x, p1.y)
+            if (isLast) ctx.moveTo(p2.x, p2.y)
+          })
         })
-      })
-      ctx.stroke()
+        ctx.stroke()
+      }
     }
 
-    function tick(t) {
+    function tick(t: DOMHighResTimeStamp) {
       const mouse = mouseRef.current
 
       mouse.sx += (mouse.x - mouse.sx) * 0.1
@@ -262,8 +295,10 @@ export function Waves({
       mouse.ly = mouse.y
       mouse.a = Math.atan2(dy, dx)
 
-      container.style.setProperty("--x", `${mouse.sx}px`)
-      container.style.setProperty("--y", `${mouse.sy}px`)
+      if (container) {
+        container.style.setProperty("--x", `${mouse.sx}px`)
+        container.style.setProperty("--y", `${mouse.sy}px`)
+      }
 
       movePoints(t)
       drawLines()
@@ -274,15 +309,15 @@ export function Waves({
       setSize()
       setLines()
     }
-    function onMouseMove(e) {
+    function onMouseMove(e: MouseEvent) {
       updateMouse(e.pageX, e.pageY)
     }
-    function onTouchMove(e) {
+    function onTouchMove(e: TouchEvent) {
       e.preventDefault()
       const touch = e.touches[0]
       updateMouse(touch.clientX, touch.clientY)
     }
-    function updateMouse(x, y) {
+    function updateMouse(x: number, y: number) {
       const mouse = mouseRef.current
       const b = boundingRef.current
       mouse.x = x - b.left

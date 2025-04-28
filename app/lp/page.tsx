@@ -1,12 +1,12 @@
 "use client";
 
 import React from "react";
-import HeroSections from "@/components/landing-pages/hero-sections";
+import HeroSection from "../components/hero-section";
 
-export default function HeroSection() {
+export default function Home() {
   return (
     <>
-      <HeroSections />
+      <HeroSection />
     </>
   );
 }
