@@ -6,7 +6,6 @@ import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import LogoWheelbox from "@/public/Assets/WheelBox_LogoHorizontal_WithoutBg.svg";
-import InteractiveHoverButton from "../ui/interactive-hover-button";
 import UsersThree from "@/public/Icons/users-three.svg";
 import Checks from "@/public/Icons/checks.svg";
 import Confetti from "@/public/Icons/confetti.svg";
@@ -147,8 +146,7 @@ function Navbar({ className }: { className?: string }) {
           </div>
           <div className="hidden lg:flex md:flex items-center space-x-4">
             <Sheet>
-              <SheetTrigger asChild>
-                <InteractiveHoverButton text="Become Client" className="w-[135px] text-[12px]" />
+              <SheetTrigger asChild>Test
               </SheetTrigger>
               <SheetContent side="top" className="w-screen rounded-b-3xl transition py-5">
                 <SheetHeader>

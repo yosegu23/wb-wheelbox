@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from "tailwindcss";
 
 const svgToDataUri = require("mini-svg-data-uri");
@@ -15,14 +19,22 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		backgroundImage: {
+			"teams-image": "url('/teams-navbar.svg')",
+		},
   		animation: {
   			aurora: 'aurora 60s linear infinite',
   			gradient: 'gradient 8s linear infinite',
   			rainbow: 'rainbow var(--speed, 2s) infinite linear',
   			marquee: 'marquee var(--duration) infinite linear',
-  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
+  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+			'wave-pulse': 'wave-pulse 4s ease-in-out infinite',
   		},
   		keyframes: {
+			'wave-pulse': {
+				'0%, 100%': { opacity: '0.4' },
+				'50%': { opacity: '0.7' }
+			},
   			aurora: {
   				from: {
   					backgroundPosition: '50% 50%, 50% 50%'
@@ -182,7 +194,7 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
   	}
   },
   plugins: [require("tailwindcss-animate"), addVariablesForColors, function ({ matchUtilities, theme }: any) {
