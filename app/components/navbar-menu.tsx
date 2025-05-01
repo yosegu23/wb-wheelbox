@@ -19,19 +19,19 @@ const components: { title: string; href: string; description: string }[] = [
     title: "Harmonia",
     href: "/docs/primitives/alert-dialog",
     description:
-      "The joint venture platform makes it easier for companies with venture capital to work together without requiring time and place constraints.",
+      "A collaboration platform for venture-backed companies, making it easier to work together without time and location constraints.",
   },
   {
     title: "Bowman",
     href: "/docs/primitives/hover-card",
     description:
-      "Business management platform from inventory modules, invoices, point of sale, and detailed reports.",
+      "A complete business management platform with inventory modules, invoices, point of sale, and detailed reports.",
   },
   {
     title: "Uplusbe",
     href: "/docs/primitives/progress",
     description:
-      "Platform to upload content to all social media with one click with easy features to set ads, target audience, etc.",
+      "A platform to upload content to all social media with a single click, featuring ad targeting and audience management tools.",
   },
 ];
 
@@ -39,22 +39,22 @@ const secondComponent: { title: string; href: string; description: string }[] = 
   {
     title: "Modern Landing Page Website",
     href: "/services/landingpage",
-    description: "Modern Landing Page for company profile business or personal branding",
+    description: "Create a modern landing page for your business profile or personal branding that captures attention.",
   },
   {
     title: "Web App & Mobile App",
     href: "/services/webapp",
-    description: "Custom Web App and Mobile with best tech stack and scalable application.",
+    description: "Custom web and mobile app development using the best tech stack, designed for scalability and performance.",
   },
   {
     title: "Social Media Management",
     href: "/services/smm",
-    description: "Manage social media management with good visual, caption, and hook for gain brand/products.",
+    description: "Manage your social media with compelling visuals, effective captions, and hooks to boost your brand and products.",
   },
   {
     title: "Creative Brands",
     href: "/services/creativebrands",
-    description: "Build best brand to stand with modern strategy and visual."
+    description: "Build a standout brand with modern strategies and visuals that set you apart from the competition."
   }
 ];
 
@@ -72,20 +72,20 @@ export function NavigationMenuDemo() {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-teams-image shadow-[inset_0_-2px_4px_rgba(0,0,0,0.6)] p-6 no-underline outline-none focus:shadow-md"
                     href="/">
                     <div className="mb-2 mt-4 text-lg font-medium">Teams</div>
-                    <p className="text-sm leading-tight text-white">
-                      Meet with the best professional Team of Wheelbox.
+                    <p className="text-[10px] leading-tight text-white">
+                    Meet the professional team behind Wheelbox, delivering excellence in every project.
                     </p>
                   </a>
                 </NavigationMenuLink>
               </li>
               <ListItem href="/docs" title="Vision & Mission">
-                Re-usable components built using Radix UI and Tailwind CSS.
+              Discover the core goals and values driving our company&apos;s future.
               </ListItem>
               <ListItem href="/docs/installation" title="Core Values">
-                How to install dependencies and structure your app.
+              Understand the principles that guide our development process and decision-making.
               </ListItem>
               <ListItem href="/docs/primitives/typography" title="Wheelbox Story">
-                Styles for headings, paragraphs, lists...etc
+              Learn about our journey, challenges, and successes that shaped Wheelbox today.
               </ListItem>
             </ul>
           </NavigationMenuContent>
