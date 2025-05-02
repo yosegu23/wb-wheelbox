@@ -28,12 +28,12 @@ export function ClientsSection() {
   return (
     <div className="h-screen w-full overflow-hidden mt-24">
       <div className="mx-auto mt-32 w-full max-w-2xl">
-        <div className="text-center text-2xl text-foreground">
-          <span className="text-indigo-900 dark:text-indigo-200">
+        <div className="text-center text-foreground text-balance">
+          <span className="text-indigo-900 text-5xl dark:text-indigo-200">
             Trusted by forward-thinking brands.
           </span>
           <br />
-          <span>We&apos;re proud to work with innovators and leaders.</span>
+          <span className="text-2xl mt-5">We&apos;re proud to work with innovators and leaders.</span>
         </div>
 
         <div className="relative mt-7 h-[100px] max-w-2xl">
