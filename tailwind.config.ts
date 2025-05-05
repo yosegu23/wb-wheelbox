@@ -18,7 +18,12 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   safelist: [
-	'[--duration:20s]'
+	'animate-marquee',
+    'animate-marquee-vertical',
+    '[animation-direction:reverse]',
+    'group-hover:[animation-play-state:paused]',
+    '[--duration:20s]',
+    '[--gap:1rem]',
   ],
   theme: {
   	extend: {
