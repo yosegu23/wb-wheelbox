@@ -13,43 +13,43 @@ const reviews = [
   {
     name: "Getama Priadi",
     username: "Best Edutainment",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
+    body: "Wheelbox completely exceeded our expectations. The result is unlike anything we've seen before—innovative, polished, and powerful.",
     img: getama
   },
   {
     name: "Riza Kridayana",
     username: "BHSI",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
+    body: "The work blew us away. It’s rare to be left speechless, but Wheelbox delivered something truly extraordinary.",
     img: riza
   },
   {
     name: "Karsin",
     username: "PT Agro Selaras Sinergi",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    body: "From start to finish, the experience was seamless. Wheelbox took our vision and made it better than we imagined.",
     img: karsin
   },
   {
     name: "Andry Wijaya",
     username: "CV Gemaria",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    body: "Professional, creative, and deeply committed—Wheelbox delivered beyond our expectations. We’re thrilled with the outcome.",
     img: andry
   },
   {
     name: "Muhamad Rijal Badru Salim",
     username: "Bale Zakat Sodaqoh",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    body: "This was more than just a project—it was a transformation. We’re proud to have partnered with Wheelbox.",
     img: muhammad
   },
   {
     name: "Zainal Muttaqin",
     username: "Juku Gakuin Center",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    body: "Wheelbox brought clarity, speed, and innovation to the table. What they delivered was simply outstanding.",
     img: zainal
   },
   {
     name: "Aip Saipul Mubarok",
     username: "Ichihara Jaya",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    body: "We’ve worked with many teams before, but Wheelbox stands apart. They turned our ideas into something remarkable.",
     img: aip
   }
 ];
@@ -87,7 +87,7 @@ const ReviewCard = ({
           <p className="text-xs font-medium dark:text-white/40">{username}</p>
         </div>
       </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
+      <blockquote className="mt-2 text-sm text-balance">{body}</blockquote>
     </figure>
   );
 };
