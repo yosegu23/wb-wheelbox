@@ -6,12 +6,14 @@ import { ClientsSection } from "../components/clients-section";
 import { MarqueeClients } from "../components/marquee-client";
 import { AboutUs } from "../components/about-wb";
 import { Showcase } from "../components/showcase";
+import Services from "../components/services";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
       <AboutUs />
+      <Services />
       <ClientsSection />
       <MarqueeClients />
       <Showcase />
