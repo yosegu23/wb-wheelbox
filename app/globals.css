@@ -128,4 +128,10 @@ body {
     transform: translateY(calc(-100% - var(--gap)));
     }
   }
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
 }

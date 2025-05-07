@@ -21,7 +21,7 @@ const reviews = [
   {
     name: "Riza Kridayana",
     username: "BHSI",
-    body: "The work blew us away. It’s rare to be left speechless, but Wheelbox delivered something truly extraordinary.",
+    body: "The work blew us away. It iss rare to be left speechless, but Wheelbox delivered something truly extraordinary.",
     img: riza
   },
   {
@@ -33,13 +33,13 @@ const reviews = [
   {
     name: "Andry Wijaya",
     username: "CV Gemaria",
-    body: "Professional, creative, and deeply committed—Wheelbox delivered beyond our expectations. We’re thrilled with the outcome.",
+    body: "Professional, creative, and deeply committed—Wheelbox delivered beyond our expectations. We are thrilled with the outcome.",
     img: andry
   },
   {
     name: "Muhamad Rijal Badru Salim",
     username: "Bale Zakat Sodaqoh",
-    body: "This was more than just a project—it was a transformation. We’re proud to have partnered with Wheelbox.",
+    body: "This was more than just a project—it was a transformation. We are proud to have partnered with Wheelbox.",
     img: muhammad
   },
   {
@@ -51,7 +51,7 @@ const reviews = [
   {
     name: "Aip Saipul Mubarok",
     username: "Ichihara Jaya",
-    body: "We’ve worked with many teams before, but Wheelbox stands apart. They turned our ideas into something remarkable.",
+    body: "We have worked with many teams before, but Wheelbox stands apart. They turned our ideas into something remarkable.",
     img: aip
   }
 ];
