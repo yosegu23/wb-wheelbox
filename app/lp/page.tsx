@@ -8,6 +8,7 @@ import { AboutUs } from "../components/about-wb";
 import { Showcase } from "../components/showcase";
 import Services from "../components/services";
 import { CallToAction } from "../components/cta";
+import Footer from "../components/footer";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <MarqueeClients />
       <Showcase />
       <CallToAction />
+      <Footer />
     </>
   );
 }
