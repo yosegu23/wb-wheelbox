@@ -3,22 +3,19 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
-//TODO : Improve mobile version to display the image down the corresponding text instead of at the full bottom
-
 const data = [
   {
     title: "Modern Landing Page Website",
     content:
       "Create stunning, high-converting landing pages with Wheelbox’s customizable components. Our easy-to-use library allows you to design responsive web and mobile applications that align with your brand.",
-    srcImage:
-      "https://images.unsplash.com/photo-1717501219716-b93a67d2f7b2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8",
+    srcImage: "/Images/modern_landing_page.svg",
   },
   {
     title: "Web App & Mobile App Custom",
     content:
       "Streamline your development process with Wheelbox’s pre-built, customizable components for web and mobile apps. Quickly integrate these elements into your project, enhancing functionality without compromising design.",
     srcImage:
-      "https://images.unsplash.com/photo-1717501219074-943fc738e5a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8M3x8fGVufDB8fHx8fA%3D%3D",
+      "/Images/custom_app.svg",
   },
   {
     title: "Social Media & Marketing",
@@ -74,8 +71,7 @@ export function Services() {
                 setFeatureOpen(index);
                 setTimer(0);
               }}
-              type="button"
-            >
+              type="button">
               <TextComponent
                 content={item.content}
                 isOpen={featureOpen === index}
@@ -89,16 +85,15 @@ export function Services() {
         <div className="h-full">
           <div
             className={cn(
-              "relative h-96 w-full overflow-hidden rounded-lg md:h-[500px]",
-            )}
-          >
+              "relative h-96 w-full overflow-hidden rounded-lg md:h-[500px]"
+            )}>
             {data.map((item, index) => (
               <img
                 alt={item.title}
                 className={cn(
                   "absolute h-[500px] w-full transform-gpu rounded-lg object-cover transition-all duration-300",
                   featureOpen === index ? "scale-100" : "scale-70",
-                  featureOpen > index ? "translate-y-full" : "",
+                  featureOpen > index ? "translate-y-full" : ""
                 )}
                 key={item.title}
                 src={item.srcImage}
@@ -132,31 +127,27 @@ function TextComponent({
         "transform-gpu rounded-lg border transition-all",
         isOpen
           ? "border-neutral-500/10 bg-linear-to-b from-neutral-200/15 to-neutral-200/5 dark:border-neutral-500/15 dark:from-neutral-600/15 dark:to-neutral-600/5 dark:shadow-[2px_4px_25px_0px_rgba(248,248,248,0.06)_inset] "
-          : "scale-90 border-transparent opacity-50 saturate-0",
-      )}
-    >
+          : "scale-90 border-transparent opacity-50 saturate-0"
+      )}>
       <div className="flex w-full items-center gap-4 p-4">
         <p
           className={cn(
-            "inline-flex size-8 shrink-0 items-center justify-center rounded-md bg-neutral-500/20 text-neutral-600",
-          )}
-        >
+            "inline-flex size-8 shrink-0 items-center justify-center rounded-md bg-neutral-500/20 text-neutral-600"
+          )}>
           {number}
         </p>
         <h2
           className={cn(
-            "text-left font-medium text-neutral-800 text-xl dark:text-neutral-200",
-          )}
-        >
+            "text-left font-medium text-neutral-800 text-xl dark:text-neutral-200"
+          )}>
           {title}
         </h2>
       </div>
       <div
         className={cn(
           "w-full transform-gpu overflow-hidden text-left text-neutral-600 transition-all duration-500 dark:text-neutral-400",
-          isOpen ? " max-h-64" : "max-h-0",
-        )}
-      >
+          isOpen ? " max-h-64" : "max-h-0"
+        )}>
         <p className="p-4 text-lg">{content}</p>
         <div className="w-full px-4 pb-4">
           <div className="relative h-1 w-full overflow-hidden rounded-full">
