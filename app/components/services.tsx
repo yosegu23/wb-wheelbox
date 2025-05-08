@@ -22,14 +22,14 @@ const data = [
     content:
       "Elevate your brand’s digital presence with tailored social media strategies. Integrate Wheelbox’s components to ensure consistency across your web and marketing platforms, from content creation to campaign execution.",
     srcImage:
-      "https://images.unsplash.com/photo-1717501218636-a390f9ac5957?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8Nnx8fGVufDB8fHx8fA%3D%3D",
+      "/Images/smm.svg",
   },
   {
     title: "Creative Branding & Design",
     content:
       "Wheelbox offers end-to-end branding and design solutions. Use our library of modern components to craft a cohesive visual identity, ensuring your brand stands out across all digital touchpoints.",
     srcImage:
-      "https://images.unsplash.com/photo-1717501219781-54ac9d09051b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8N3x8fGVufDB8fHx8fA%3D%3D",
+      "/Images/creative-brand.svg",
   },
 ];
 
@@ -51,7 +51,7 @@ export function Services() {
   }, [timer]);
 
   return (
-    <div className="w-full px-[100px]">
+    <div className="w-full px-[200px]">
       <div className="mb-20 text-center">
         <p className=" mb-2 font-medium text-neutral-500 text-sm uppercase">
           What we offer ?

@@ -7,8 +7,8 @@ import { MarqueeClients } from "../components/marquee-client";
 import { AboutUs } from "../components/about-wb";
 import { Showcase } from "../components/showcase";
 import Services from "../components/services";
-import { CallToAction } from "../components/cta";
 import Footer from "../components/footer";
+import Faq02 from "../components/faq";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
       <ClientsSection />
       <MarqueeClients />
       <Showcase />
-      <CallToAction />
+      <Faq02 />
       <Footer />
     </>
   );
