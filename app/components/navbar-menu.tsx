@@ -35,28 +35,33 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ];
 
-const secondComponent: { title: string; href: string; description: string }[] = [
-  {
-    title: "Modern Landing Page Website",
-    href: "/services/landingpage",
-    description: "Create a modern landing page for your business profile or personal branding that captures attention.",
-  },
-  {
-    title: "Web App & Mobile App",
-    href: "/services/webapp",
-    description: "Custom web and mobile app development using the best tech stack, designed for scalability and performance.",
-  },
-  {
-    title: "Social Media Management",
-    href: "/services/smm",
-    description: "Manage your social media with compelling visuals, effective captions, and hooks to boost your brand and products.",
-  },
-  {
-    title: "Creative Brands",
-    href: "/services/creativebrands",
-    description: "Build a standout brand with modern strategies and visuals that set you apart from the competition."
-  }
-];
+const secondComponent: { title: string; href: string; description: string }[] =
+  [
+    {
+      title: "Modern Landing Page Website",
+      href: "/services/landingpage",
+      description:
+        "Create a modern landing page for your business profile or personal branding that captures attention.",
+    },
+    {
+      title: "Web App & Mobile App",
+      href: "/services/webapp",
+      description:
+        "Custom web and mobile app development using the best tech stack, designed for scalability and performance.",
+    },
+    {
+      title: "Social Media Management",
+      href: "/services/smm",
+      description:
+        "Manage your social media with compelling visuals, effective captions, and hooks to boost your brand and products.",
+    },
+    {
+      title: "Creative Brands",
+      href: "/services/creativebrands",
+      description:
+        "Build a standout brand with modern strategies and visuals that set you apart from the competition.",
+    },
+  ];
 
 export function NavigationMenuDemo() {
   return (
@@ -67,25 +72,31 @@ export function NavigationMenuDemo() {
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <a
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-teams-image shadow-[inset_0_-2px_4px_rgba(0,0,0,0.6)] p-6 no-underline outline-none focus:shadow-md"
-                    href="/">
+                <NavigationMenuLink>
+                  <Link
+                    href="/teams"
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-teams-image shadow-[inset_0_-2px_4px_rgba(0,0,0,0.6)] p-6 no-underline outline-none focus:shadow-md">
                     <div className="mb-2 mt-4 text-lg font-medium">Teams</div>
                     <p className="text-[10px] leading-tight text-white">
-                    Meet the professional team behind Wheelbox, delivering excellence in every project.
+                      Meet the professional team behind Wheelbox, delivering
+                      excellence in every project.
                     </p>
-                  </a>
+                  </Link>
                 </NavigationMenuLink>
               </li>
               <ListItem href="/docs" title="Vision & Mission">
-              Discover the core goals and values driving our company&apos;s future.
+                Discover the core goals and values driving our company&apos;s
+                future.
               </ListItem>
               <ListItem href="/docs/installation" title="Core Values">
-              Understand the principles that guide our development process and decision-making.
+                Understand the principles that guide our development process and
+                decision-making.
               </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Wheelbox Story">
-              Learn about our journey, challenges, and successes that shaped Wheelbox today.
+              <ListItem
+                href="/docs/primitives/typography"
+                title="Wheelbox Story">
+                Learn about our journey, challenges, and successes that shaped
+                Wheelbox today.
               </ListItem>
             </ul>
           </NavigationMenuContent>
