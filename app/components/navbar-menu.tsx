@@ -84,16 +84,16 @@ export function NavigationMenuDemo() {
                   </Link>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/docs" title="Vision & Mission">
+              <ListItem href="/purpose" title="Vision & Mission">
                 Discover the core goals and values driving our company&apos;s
                 future.
               </ListItem>
-              <ListItem href="/docs/installation" title="Core Values">
+              <ListItem href="/core-values" title="Core Values">
                 Understand the principles that guide our development process and
                 decision-making.
               </ListItem>
               <ListItem
-                href="/docs/primitives/typography"
+                href="/wheelbox-story"
                 title="Wheelbox Story">
                 Learn about our journey, challenges, and successes that shaped
                 Wheelbox today.
