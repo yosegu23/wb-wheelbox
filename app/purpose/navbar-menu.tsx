@@ -63,7 +63,7 @@ const secondComponent: { title: string; href: string; description: string }[] =
     },
   ];
 
-export function NavigationMenuAbout() {
+export function NavigationMenuPurpose() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
