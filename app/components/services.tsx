@@ -51,18 +51,17 @@ export function Services() {
   }, [timer]);
 
   return (
-    <div className="w-full px-[200px]">
-      <div className="mb-20 text-center">
-        <p className=" mb-2 font-medium text-neutral-500 text-sm uppercase">
-          What we offer ?
+    <div className="w-full px-6 sm:px-10 md:px-20 lg:px-32 xl:px-48">
+      <div className="mb-16 text-center">
+        <p className="mb-2 text-sm font-medium uppercase text-neutral-500">
+          What we offer?
         </p>
-
-        <h2 className="mb-4 font-semibold text-3xl text-neutral-800 tracking-tighter dark:text-neutral-300">
+        <h2 className="mb-4 text-3xl font-semibold tracking-tighter text-neutral-800 dark:text-neutral-300">
           We could deliver you a lot of things
         </h2>
       </div>
-      <div className=" grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className="space-y-6 ">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="space-y-6">
           {data.map((item, index) => (
             <button
               className="w-full"
@@ -71,7 +70,8 @@ export function Services() {
                 setFeatureOpen(index);
                 setTimer(0);
               }}
-              type="button">
+              type="button"
+            >
               <TextComponent
                 content={item.content}
                 isOpen={featureOpen === index}
@@ -83,20 +83,18 @@ export function Services() {
           ))}
         </div>
         <div className="h-full">
-          <div
-            className={cn(
-              "relative h-96 w-full overflow-hidden rounded-lg md:h-[500px]"
-            )}>
+          <div className="relative w-full overflow-hidden rounded-lg h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px]">
             {data.map((item, index) => (
               <img
                 alt={item.title}
-                className={cn(
-                  "absolute h-[500px] w-full transform-gpu rounded-lg object-cover transition-all duration-300",
-                  featureOpen === index ? "scale-100" : "scale-70",
-                  featureOpen > index ? "translate-y-full" : ""
-                )}
                 key={item.title}
                 src={item.srcImage}
+                className={cn(
+                  "absolute inset-0 w-full h-full transform-gpu rounded-lg transition-all duration-300",
+                  "object-contain md:object-cover",
+                  featureOpen === index ? "scale-100 opacity-100" : "scale-75 opacity-0",
+                  featureOpen > index ? "translate-y-full" : ""
+                )}
                 style={{ zIndex: data.length - index }}
               />
             ))}

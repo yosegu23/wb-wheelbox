@@ -63,7 +63,7 @@ export function Showcase() {
 
   return (
     <div className="h-full min-h-screen w-full flex flex-col gap-8 items-center justify-center p-6 lg:pt-[100px]">
-      <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-6xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+      <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-2xl md:text-3xl lg:text-6xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
         Showcase of Wheelbox Project
       </span>
 
