@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { HeroHeader } from "../components/hero-header";
 
+
 export const metadata: Metadata = {
-  title: "WheelBox |Modern Landing Page",
+  title: "WheelBox |Team Of Wheelbox",
   description:
     "Startup Cianjur - WheelBox, a startup based in Cianjur, Indonesia, focusing on innovation and technology.",
   keywords: [
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function TeamsLayout({
+export default function WorksLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -22,7 +23,7 @@ export default function TeamsLayout({
   return (
     <>
       <HeroHeader />
-      <div className="w-full h-full flex justify-center items-center p-11 lg:p-0">
+      <div className="w-full h-full flex justify-center items-center">
         {children}
       </div>
     </>

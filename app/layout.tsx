@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/theme-provider";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import SplashScreen from "@/components/ui/splashscreen";
+import ClientLayout from "./client-layout";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,12 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={poppins.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <SplashScreen />
-          {children}
-        </ThemeProvider>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

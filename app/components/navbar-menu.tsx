@@ -39,25 +39,25 @@ const secondComponent: { title: string; href: string; description: string }[] =
   [
     {
       title: "Modern Landing Page Website",
-      href: "/services/landingpage",
+      href: "/landing-page",
       description:
         "Create a modern landing page for your business profile or personal branding that captures attention.",
     },
     {
       title: "Web App & Mobile App",
-      href: "/services/webapp",
+      href: "/custom-app",
       description:
         "Custom web and mobile app development using the best tech stack, designed for scalability and performance.",
     },
     {
       title: "Social Media Management",
-      href: "/services/smm",
+      href: "/smm",
       description:
         "Manage your social media with compelling visuals, effective captions, and hooks to boost your brand and products.",
     },
     {
       title: "Creative Brands",
-      href: "/services/creativebrands",
+      href: "/creative-brands",
       description:
         "Build a standout brand with modern strategies and visuals that set you apart from the competition.",
     },
@@ -72,7 +72,7 @@ export function NavigationMenuDemo() {
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
-                <NavigationMenuLink>
+                <NavigationMenuLink asChild>
                   <Link
                     href="/teams"
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-teams-image shadow-[inset_0_-2px_4px_rgba(0,0,0,0.6)] p-6 no-underline outline-none focus:shadow-md">
@@ -92,9 +92,7 @@ export function NavigationMenuDemo() {
                 Understand the principles that guide our development process and
                 decision-making.
               </ListItem>
-              <ListItem
-                href="/wheelbox-story"
-                title="Wheelbox Story">
+              <ListItem href="/wheelbox-story" title="Wheelbox Story">
                 Learn about our journey, challenges, and successes that shaped
                 Wheelbox today.
               </ListItem>
@@ -117,11 +115,11 @@ export function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+          <NavigationMenuLink asChild>
+            <Link href="/works" className={navigationMenuTriggerStyle()}>
               Works
-            </NavigationMenuLink>
-          </Link>
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Services</NavigationMenuTrigger>
@@ -139,11 +137,11 @@ export function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+          <NavigationMenuLink asChild>
+            <Link href="/docs" className={navigationMenuTriggerStyle()}>
               Blog
-            </NavigationMenuLink>
-          </Link>
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
