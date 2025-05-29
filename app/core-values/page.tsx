@@ -7,7 +7,7 @@ import CircularText from "@/components/ui/circular-text";
 
 const CoreValuePage = () => {
   return (
-    <div className="w-full h-full flex flex-col items-start justify-start lg:p-[170px] gap-8">
+    <div className="w-full h-full flex flex-col items-start justify-start pt-11 lg:p-[170px] gap-8">
       <span className="text-xs h-auto">Core Values</span>
       <div className="flex flex-col items-start justify-start gap-2">
         <GradientText
@@ -18,7 +18,7 @@ const CoreValuePage = () => {
           Navigating the Digital Maze
         </GradientText>
       </div>
-      <div className="flex flex-row items-start justify-start gap-4">
+      <div className="flex flex-col lg:flex-row items-start justify-start gap-4">
         <div className="flex flex-col items-start justify-start gap-4">
           <BlurText
             text="At WheelBox,guide every decision and action we
@@ -32,7 +32,7 @@ const CoreValuePage = () => {
             text="*WHEELBOX*CORE"
             onHover="speedUp"
             spinDuration={20}
-            className="custom-class"
+            className="hidden lg:block"
           />
         </div>
         <CardCoreValues />

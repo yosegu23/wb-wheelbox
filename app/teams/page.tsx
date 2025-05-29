@@ -15,6 +15,7 @@ import hendra from "@/public/Team/10.png";
 import elvio from "@/public/Team/11.png";
 import ridwan from "@/public/Team/12.png";
 import hafidz from "@/public/Team/13.png";
+import GradientText from "@/components/ui/gradient-text";
 
 const teamMembers = [
   {
@@ -100,10 +101,16 @@ const teamMembers = [
 
 const Teams = () => {
   return (
-    <div className="w-full h-full flex flex-col items-start justify-start lg:p-[170px] gap-8">
+    <div className="w-full h-full flex flex-col items-start justify-start pt-11 lg:p-[170px] gap-8">
       <span className="text-xs h-auto">Our Team</span>
       <div className="flex flex-col items-start justify-start gap-2">
-        <h1 className="text-slate-500 text-5xl">Meet Our Team</h1>
+        <GradientText
+          colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+          animationSpeed={3}
+          showBorder={false}
+          className="text-5xl h-auto">
+          Meet Our Team
+        </GradientText>
         <h1 className="text-5xl">Passionate. Innovation. Expert</h1>
       </div>
       <p className="lg:w-[450px] text-base leading-relaxed">

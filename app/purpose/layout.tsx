@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HeroHeader } from "./hero-header-purpose";
+import { HeroHeader } from "../components/hero-header";
 
 export const metadata: Metadata = {
   title: "WheelBox |Team Of Wheelbox",

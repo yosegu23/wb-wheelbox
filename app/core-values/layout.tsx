@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { HeroHeader } from "./hero-header-cv";
+import { HeroHeader } from "../components/hero-header";
+
 
 export const metadata: Metadata = {
   title: "WheelBox |Team Of Wheelbox",
@@ -22,7 +23,7 @@ export default function CoreValuesLayout({
   return (
     <>
       <HeroHeader />
-      <div className="w-full h-full flex justify-center items-center">
+      <div className="w-full h-full flex justify-center items-center p-11 lg:p-0">
         {children}
       </div>
     </>

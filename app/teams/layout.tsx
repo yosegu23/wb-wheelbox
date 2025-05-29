@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HeroHeader } from "./hero-header-team";
+import { HeroHeader } from "../components/hero-header";
 
 export const metadata: Metadata = {
   title: "WheelBox |Team Of Wheelbox",
@@ -22,7 +22,7 @@ export default function TeamsLayout({
   return (
     <>
       <HeroHeader />
-      <div className="w-full h-full flex justify-center items-center">{children}</div>
+      <div className="w-full h-full flex justify-center items-center p-11 lg:p-0">{children}</div>
     </>
   );
 }
