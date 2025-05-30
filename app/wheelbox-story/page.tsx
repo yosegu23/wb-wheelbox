@@ -3,11 +3,9 @@ import { WbStory } from "../components/wb-story";
 
 const WbStoryPage = () => {
   return (
-    <>
       <div className="w-full h-screen">
         <WbStory />
       </div>
-    </>
   );
 };
 

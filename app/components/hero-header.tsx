@@ -73,7 +73,7 @@ const mobileMenu = [
   },
   {
     title: "Blog",
-    href: "/docs",
+    href: "/blog",
   },
 ];
 
@@ -219,7 +219,7 @@ export const HeroHeader = () => {
                 <Sheet>
                   <SheetTrigger asChild>
                     <InteractiveHoverButton
-                      className={cn(isScrolled && "lg:hidden text-[12px]")}>
+                      className={cn(isScrolled && "text-[12px]")}>
                       Become Client
                     </InteractiveHoverButton>
                   </SheetTrigger>

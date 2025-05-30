@@ -1,3 +1,6 @@
+'use client';
+import React from "react";
+
 import { StickyFooter } from "./sticky-footer";
 import Link from "next/link";
 import { CallToAction } from "./cta";
@@ -25,9 +28,9 @@ const links = [
     title: "About",
     items: [
       { href: "/app/Teams", label: "Teams" },
+      { href: "/app/purpose", label: "Vision & Mission" },
       { href: "/app/corevalues", label: "Core Values" },
       { href: "/app/wheelboxstory", label: "Wheelbox Story" },
-      { href: "/app/wheelboxstory", label: "Contact Us" },
     ],
   },
   {

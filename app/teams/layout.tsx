@@ -23,6 +23,7 @@ export default function TeamsLayout({
     <>
       <HeroHeader />
       <div className="w-full h-full flex justify-center items-center p-11 lg:p-0">{children}</div>
+      
     </>
   );
 }

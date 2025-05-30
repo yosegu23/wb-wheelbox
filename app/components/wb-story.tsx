@@ -1,6 +1,7 @@
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import GradientText from "@/components/ui/gradient-text";
+import Footer from "../components/footer";
 
 export function WbStory() {
   const data = [
@@ -119,8 +120,8 @@ export function WbStory() {
               The Dream Started
             </GradientText>
             <p className="mb-4 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-              One of our dreams platform and several SaaS products are
-              currently in development. We are working hard to make it a reality.
+              One of our dreams platform and several SaaS products are currently
+              in development. We are working hard to make it a reality.
             </p>
             {/* <div className="mb-8">
               <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
@@ -175,8 +176,11 @@ export function WbStory() {
     },
   ];
   return (
-    <div className="relative w-full overflow-clip lg:pt-10">
-      <Timeline data={data} />
+    <div className="flex flex-col">
+      <div className="relative w-full overflow-clip lg:pt-10">
+        <Timeline data={data} />
+      </div>
+      <Footer />
     </div>
   );
 }

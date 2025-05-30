@@ -9,10 +9,11 @@ import { WorksTab } from "../components/work-tabs";
 import GradientText from "@/components/ui/gradient-text";
 import ShinyText from "@/components/ui/shiny-text";
 import { TerminalWorks } from "../components/terminal-works";
+import Footer from "../components/footer";
 
 export default function HeroSection() {
   return (
-    <>
+    <div className="flex flex-col">
       <main className="overflow-x-hidden">
         <section>
           <div className="pb-20 pt-12 md:pb-32 lg:pb-44 lg:pt-44">
@@ -154,6 +155,7 @@ export default function HeroSection() {
         <CpuArchitecture className="p-11" />
         <WorksTab />
       </main>
-    </>
+      <Footer />
+    </div>
   );
 }

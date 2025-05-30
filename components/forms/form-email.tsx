@@ -60,26 +60,23 @@ const FormEmail = () => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <>
-                    <div className="relative w-full">
-                      <Input
-                        {...field}
-                        id="input-19"
-                        className="pe-10 dark:text-white"
-                        placeholder="Fill your email.."
-                        type="email"
-                        disabled={form.formState.isSubmitting}
-                      />
-                      <button
-                        className="absolute inset-y-0 end-[-24px] flex h-full w-20 items-center justify-center rounded-e-lg border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
-                        aria-label="Subscribe"
-                        type="submit"
-                        disabled={form.formState.isSubmitting}
-                      >
-                        <Send size={16} strokeWidth={2} aria-hidden="true" />
-                      </button>
-                    </div>
-                  </>
+                  <div className="relative w-full">
+                    <Input
+                      {...field}
+                      id="input-19"
+                      className="pe-10 dark:text-white"
+                      placeholder="Fill your email.."
+                      type="email"
+                      disabled={form.formState.isSubmitting}
+                    />
+                    <button
+                      className="absolute inset-y-0 end-[-24px] flex h-full w-20 items-center justify-center rounded-e-lg border border-transparent text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+                      aria-label="Subscribe"
+                      type="submit"
+                      disabled={form.formState.isSubmitting}>
+                      <Send size={16} strokeWidth={2} aria-hidden="true" />
+                    </button>
+                  </div>
                 </FormControl>
               </FormItem>
             )}
