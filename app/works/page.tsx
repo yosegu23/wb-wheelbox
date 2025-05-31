@@ -10,14 +10,15 @@ import GradientText from "@/components/ui/gradient-text";
 import ShinyText from "@/components/ui/shiny-text";
 import { TerminalWorks } from "../components/terminal-works";
 import Footer from "../components/footer";
+import { TimelineWorks } from "../components/timeline-works";
 
 export default function HeroSection() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <main className="overflow-x-hidden">
         <section>
-          <div className="pb-20 pt-12 md:pb-32 lg:pb-44 lg:pt-44">
-            <div className="relative mx-auto flex lg:flex-row max-w-6xl flex-col px-6">
+          <div className="pb-20 pt-12 md:pb-32 lg:p-20">
+            <div className="relative mx-auto flex lg:flex-row w-full flex-col px-6">
               <div className="mx-auto max-w-lg text-center lg:ml-0 lg:w-1/2 lg:text-left">
                 <GradientText
                   colors={[
@@ -37,7 +38,7 @@ export default function HeroSection() {
                   Wheelbox — smart automation for your business."
                   disabled={false}
                   speed={20}
-                  className="mt-8 max-w-2xl text-pretty text-lg"
+                  className="mt-8 w-[380px] lg:max-w-2xl text-pretty lg:text-balance p-5 lg:p-0 text-base lg:text-lg"
                 />
 
                 <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
@@ -48,12 +49,14 @@ export default function HeroSection() {
                   </Button>
                 </div>
               </div>
+              <div className="hidden lg:flex">
               <TerminalWorks />
+              </div>
             </div>
           </div>
         </section>
-        <section className="bg-background pb-16 md:pb-32">
-          <div className="group relative m-auto max-w-6xl px-6">
+        <section className="bg-background pb-2 lg:pb-16 md:pb-32">
+          <div className="group relative m-auto w-[500px] lg:w-full px-6">
             <div className="flex flex-col items-center md:flex-row">
               <div className="md:max-w-44 md:border-r md:pr-6">
                 <p className="text-end text-sm">Our Successfull Clients</p>
@@ -153,7 +156,12 @@ export default function HeroSection() {
           </div>
         </section>
         <CpuArchitecture className="p-11" />
+        <div className="flex lg:hidden p-6">
+          <TimelineWorks />
+        </div>
+        <div className="hidden lg:flex">
         <WorksTab />
+        </div>
       </main>
       <Footer />
     </div>
