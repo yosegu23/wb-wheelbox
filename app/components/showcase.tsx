@@ -1,8 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PinContainer } from "@/components/ui/3d-pin";
 import { Button } from "@/components/ui/button";
+import agross from "@/public/website/agro.png";
+import best from "@/public/website/best.png";
+import bhsi from "@/public/website/bhsi.png";
+import ichihara from "@/public/website/ichihara-jaya.png";
+import juku from "@/public/website/juku-gakuin-center.png";
+import bale from "@/public/website/bale.png";
 
 const pinData = [
   {
@@ -10,6 +17,7 @@ const pinData = [
     title: "www.agross.co.id",
     h3: "PT Agro Selaras Sinergi",
     span: "Agribusiness",
+    src: agross,
     gradient: "from-green-400 via-emerald-500 to-green-600",
   },
   {
@@ -17,6 +25,7 @@ const pinData = [
     title: "www.best-placement-test.com",
     h3: "Best Edutainment",
     span: "English Course",
+    src: best,
     gradient: "from-blue-400 via-indigo-500 to-purple-500",
   },
   {
@@ -24,6 +33,7 @@ const pinData = [
     title: "wheelbox-bhsi.vercel.app",
     h3: "BHSI Quick Count",
     span: "Quick Count",
+    src: bhsi,
     gradient: "from-blue-400 via-indigo-500 to-purple-500",
   },
   {
@@ -31,6 +41,7 @@ const pinData = [
     title: "www.lpkichihara.id",
     h3: "Ichihara Jaya",
     span: "Vocational Training Institution",
+    src: ichihara,
     gradient: "from-green-400 via-emerald-500 to-green-600",
   },
   {
@@ -38,6 +49,7 @@ const pinData = [
     title: "www.jukugakuincentre.id",
     h3: "Juku Gakuin Centre",
     span: "Skills Training Center",
+    src: juku,
     gradient: "from-blue-400 via-indigo-500 to-purple-500",
   },
   {
@@ -45,6 +57,7 @@ const pinData = [
     title: "www.balezakat.org",
     h3: "Bale Zakat",
     span: "Philanthropic Organization",
+    src: bale,
     gradient: "from-blue-400 via-indigo-500 to-purple-500",
   },
 ];
@@ -77,7 +90,7 @@ export function Showcase() {
               <div className="text-base !m-0 !p-0 font-normal">
                 <span className="text-slate-500">{item.span}</span>
               </div>
-              <div className={`flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br ${item.gradient}`} />
+              <img className='flex flex-1 w-full rounded-lg mt-4' src={item.src.src} alt="website" />
             </div>
           </PinContainer>
         ))}
@@ -100,7 +113,7 @@ export function Showcase() {
                     <div className="text-base !m-0 !p-0 font-normal">
                       <span className="text-slate-500">{item.span}</span>
                     </div>
-                    <div className={`flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br ${item.gradient}`} />
+                    <img className='flex flex-1 w-full rounded-lg mt-4' src={item.src.src} alt="website" />
                   </div>
                 </PinContainer>
               </motion.div>
