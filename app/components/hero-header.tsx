@@ -11,6 +11,7 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -190,8 +191,7 @@ export const HeroHeader = () => {
                                 <Link
                                   href={subItem.href}
                                   className="block text-muted-foreground hover:text-accent-foreground"
-                                  onClick={() => setMenuState(false)}
-                                >
+                                  onClick={() => setMenuState(false)}>
                                   {subItem.title}
                                 </Link>
                               </li>
@@ -225,10 +225,14 @@ export const HeroHeader = () => {
                   </SheetTrigger>
                   <SheetContent
                     side="top"
-                    className="w-screen rounded-b-3xl transition py-5">
-                    <SheetHeader>
-                      <h1 className="text-6xl">Hey!</h1>
-                      <h3 className="text-3xl">Tell us all the things</h3>
+                    className="w-screen rounded-b-3xl transition py-2 flex flex-col lg:flex-row">
+                    <SheetHeader className="w-full">
+                      <SheetTitle>
+                        <div>
+                          <h1 className="text-6xl">Hey!</h1>
+                          <h3 className="text-3xl">Tell us all the things</h3>
+                        </div>
+                      </SheetTitle>
                       <div>
                         <Form {...form}>
                           <form
@@ -306,6 +310,12 @@ export const HeroHeader = () => {
                         </Form>
                       </div>
                     </SheetHeader>
+                    <div className="flex items-center justify-center lg:w-[50%]">
+                      {/* Video GIF */}
+                      <video width="320" height="240" autoPlay loop className="rounded-2xl">
+                        <source src='/website/poster.mp4' type="video/mp4" />
+                      </video>
+                    </div>
                   </SheetContent>
                 </Sheet>
               </div>
