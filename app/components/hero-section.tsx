@@ -10,7 +10,6 @@ import { HeroHeader } from "../components/hero-header";
 import { WordRotate } from "@/components/magicui/word-rotate";
 import { useTheme } from "next-themes";
 import { Waves } from "@/components/ui/waves-background";
-import { PulsatingButton } from "@/components/magicui/pulsating-button";
 
 const transitionVariants = {
   item: {
@@ -135,14 +134,13 @@ export default function HeroSection() {
                     ...transitionVariants,
                   }}
                   className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
-                  <PulsatingButton key={1}>Get Started</PulsatingButton>
                   <Button
                     key={2}
                     asChild
                     size="lg"
                     variant="link"
                     className="h-10.5 rounded-xl px-5">
-                    <Link href="#link">
+                    <Link href="/works">
                       <span className="text-nowrap">Browse a case studies</span>
                     </Link>
                   </Button>

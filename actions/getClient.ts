@@ -1,27 +1,27 @@
 "use server";
 
 import * as z from "zod";
-import { SubmitEmail } from "@/schemas";
+import { SubmitClients } from "@/schemas";
 import { db } from "@/lib/db";
-import { getUserByEmail } from "@/data/user";
-import { sendEmailNotification } from "@/lib/mail";
+import { getClients } from "@/data/user";
+import { sendClientsNotification } from "@/lib/mail";
 
-export const sendEmail = async (values: z.infer<typeof SubmitEmail>) => {
-  const validateFields = SubmitEmail.safeParse(values);
+export const sendEmail = async (values: z.infer<typeof SubmitClients>) => {
+  const validateFields = SubmitClients.safeParse(values);
   if (!validateFields.success) {
     return { success: false, error: "Invalid email format." };
   }
 
-  const { email } = validateFields.data;
+  const { email, name, description } = validateFields.data;
 
-  const existingEmail = await getUserByEmail(email);
+  const existingEmail = await getClients(email);
   if (existingEmail) {
     return { success: false, error: "Email has already been sent before." };
   }
 
-  await db.email.create({ data: { email } });
+  await db.projects.create({ data: { email, name, description } });
 
-  await sendEmailNotification(email);
+  await sendClientsNotification(email);
 
   return { success: true, message: "Thank you for joining us! 🎉" };
 };

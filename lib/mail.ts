@@ -84,3 +84,85 @@ export const sendEmailNotification = async (email: string) => {
     throw new Error("Email sending failed");
   }
 };
+
+export const sendClientsNotification = async (email: string) => {
+  try {
+    if (!resend || !process.env.RESEND_API_KEY) {
+      throw new Error("Missing API Key for Resend");
+    }
+
+    const emailHtml = `
+  <div style="font-family: Arial, sans-serif; background: #000; color: #fff; line-height: 1.6; max-width: 600px; padding: 20px; margin: 0 auto;">
+    <!-- Centered Image -->
+    <div style="text-align: center; margin-bottom: 20px;">
+      <img 
+        src="${domain}/Images/Thankyou.png" 
+        style="max-width: 100%; height: auto; display: block; margin: 0 auto;" 
+        width="500" 
+        alt="Thank You Image"
+      >
+    </div>
+
+    <!-- Left-Aligned Content -->
+    <h3 style="font-size: 24px; margin-bottom: 16px;">Thank You for Reaching Out! 🙌</h3>
+    <p style="margin-bottom: 16px;">
+      We’ve received your request to become a Wheelbox client—and we couldn’t be more excited!
+    </p>
+    <p style="margin-bottom: 16px;">
+      Our team will review your submission shortly and reach out to you with the next steps. We’re committed to understanding your needs and helping you achieve your goals through our tailored tech solutions.
+    </p>
+    <p style="margin-bottom: 16px;">
+      In the meantime, feel free to connect with us if you have any urgent questions or ideas you'd like to share. Reach us anytime at 
+      <a href="mailto:dev.wheelbox@gmail.com" style="color: #007bff; text-decoration: none;">dev.wheelbox@gmail.com</a>.
+    </p>
+    <p style="margin-bottom: 16px;">
+      Thank you once again for considering Wheelbox. We look forward to collaborating with you!
+    </p>
+    <p style="margin-top: 20px;">Warm regards,</p>
+    <p><strong>The Wheelbox Team</strong></p>
+
+    <!-- Social Media Section -->
+    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #555;">
+      <p style="margin-bottom: 10px; font-size: 16px; font-weight: bold;">Stay connected with us:</p>
+      <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 10px; padding: 10px;">
+        <div style="text-align: center;">
+          <a href="https://www.instagram.com/wheelbox.id" target="_blank" style="text-decoration: none; color: #fff;">
+            <p style="margin: 0; font-size: 14px;">@wheelbox.id | </p>
+          </a>
+        </div>
+        <div style="text-align: center;">
+          <a href="https://wa.me/6285723217867" target="_blank" style="text-decoration: none; color: #fff;">
+            <p style="margin: 0; font-size: 14px;">0857-2321-7867</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+`;
+
+    await resend.emails.send({
+      from: "dev.wheelbox@gmail.com",
+      to: email,
+      subject: "Thanks for Requesting to Join Wheelbox 🚀",
+      html: emailHtml,
+    });
+
+  } catch (error: unknown) {
+
+    if (error instanceof Error) {
+      console.error("Error Message:", error.message);
+    } else if (error && typeof error === "object" && "response" in error) {
+      const apiError = error as { response?: { data: unknown } };
+      
+      if (apiError.response) {
+        console.error("API Error Response:", apiError.response.data);
+      } else {
+        console.error("Unknown API error occurred:", apiError);
+      }
+    } else {
+      console.error("Unexpected error occurred:", error);
+    }
+
+    throw new Error("Email sending failed");
+  }
+};

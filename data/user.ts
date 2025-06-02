@@ -13,3 +13,15 @@ export const getUserByEmail = async (email: string) => {
     return null;
   }
 };
+
+export const getClients = async (email: string) => {
+  try {
+    const project = await db.projects.findUnique({
+      where: { email },
+    });
+    return project;
+  } catch (error) {
+    console.error("Error fetching project by email:", error);
+    return null;
+  }
+}

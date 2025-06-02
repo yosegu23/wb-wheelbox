@@ -27,6 +27,8 @@ import {
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import { sendEmail } from "@/actions/getClient";
+import toast from "react-hot-toast";
 
 // const menuItems = [
 //   { name: "About", href: "#link" },
@@ -84,6 +86,7 @@ export const HeroHeader = () => {
   const [openDropdowns, setOpenDropdowns] = React.useState<
     Record<string, boolean>
   >({});
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -96,15 +99,31 @@ export const HeroHeader = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      company: "",
+      name: "",
       email: "",
-      describe: "",
+      description: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-  }
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+  const sendPromise = toast.promise(
+    sendEmail(values),
+    {
+      loading: 'Sending...',
+      success: (data) => {
+        if (!data.success) throw new Error(data.error);
+        form.reset();
+        setIsSheetOpen(false);
+        return <b>Email sent successfully!</b>;
+      },
+      error: (err) => {
+        return <b>{err.message || "Could not send email."}</b>;
+      },
+    }
+  );
+
+  await sendPromise;
+}
 
   const toggleDropdown = (title: string) => {
     setOpenDropdowns((prev) => ({
@@ -216,7 +235,7 @@ export const HeroHeader = () => {
               {/* Become Client Buttons & Form */}
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
                 {/* Mobile Sheet */}
-                <Sheet>
+                <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
                   <SheetTrigger asChild>
                     <InteractiveHoverButton
                       className={cn(isScrolled && "text-[12px]")}>
@@ -241,7 +260,7 @@ export const HeroHeader = () => {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                               <FormField
                                 control={form.control}
-                                name="company"
+                                name="name"
                                 render={({ field }) => (
                                   <FormItem>
                                     <FormLabel>Name & Company</FormLabel>
@@ -273,7 +292,7 @@ export const HeroHeader = () => {
 
                             <FormField
                               control={form.control}
-                              name="describe"
+                              name="description"
                               render={({ field }) => (
                                 <FormItem>
                                   <FormLabel>
@@ -310,7 +329,7 @@ export const HeroHeader = () => {
                         </Form>
                       </div>
                     </SheetHeader>
-                    <div className="flex items-center justify-center lg:w-[50%]">
+                    <div className="hidden lg:flex items-center justify-center lg:w-[50%]">
                       {/* Video GIF */}
                       <video width="320" height="240" autoPlay loop className="rounded-2xl">
                         <source src='/website/poster.mp4' type="video/mp4" />
