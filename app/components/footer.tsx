@@ -27,9 +27,9 @@ const links = [
   {
     title: "About",
     items: [
-      { href: "/app/Teams", label: "Teams" },
+      { href: "/app/teams", label: "Teams" },
       { href: "/app/purpose", label: "Vision & Mission" },
-      { href: "/app/corevalues", label: "Core Values" },
+      { href: "/app/core-values", label: "Core Values" },
       { href: "/app/wheelboxstory", label: "Wheelbox Story" },
     ],
   },
@@ -45,10 +45,10 @@ const links = [
   {
     title: "Contact Us",
     items: [
-      { href: "/app/landing-page", label: "LinkedIn" },
-      { href: "/app/custom-app", label: "Instagram" },
-      { href: "/app/smm", label: "Facebook" },
-      { href: "/app/creative-brands", label: "WhatsApp" },
+      { href: "https://www.linkedin.com/company/wheelbox-tech/", label: "LinkedIn" },
+      { href: "https://www.instagram.com/wheelbox.tech/", label: "Instagram" },
+      { href: "https://www.facebook.com/people/WheelBox/61570888655360/?_rdr", label: "Facebook" },
+      { href: "https://wa.me/62895335181400", label: "WhatsApp" },
     ],
   },
 ];
@@ -68,6 +68,7 @@ export function Content() {
             >
               <Link
                 href={link.href}
+                target="_blank"
                 className="relative inline-block text-white"
               >
                 <span className="after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1.5px] after:bg-neutral-500 after:transition-all after:duration-300 hover:after:w-full">
