@@ -22,14 +22,14 @@ const components: { title: string; href: string; description: string }[] = [
       "A collaboration platform for venture-backed companies, making it easier to work together without time and location constraints.",
   },
   {
-    title: "Bowman",
-    href: "/docs/primitives/hover-card",
+    title: "BuwmanHub",
+    href: "/buwmanHub",
     description:
       "A complete business management platform with inventory modules, invoices, point of sale, and detailed reports.",
   },
   {
     title: "Uplusbe",
-    href: "/docs/primitives/progress",
+    href: "/uplusbe",
     description:
       "A platform to upload content to all social media with a single click, featuring ad targeting and audience management tools.",
   },

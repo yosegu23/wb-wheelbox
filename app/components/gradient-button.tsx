@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
 import * as React from "react"
@@ -36,10 +37,10 @@ export interface GradientButtonProps
 
 const GradientButton = React.forwardRef<HTMLButtonElement, GradientButtonProps>(
   ({ className, variant, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    const Comp = "button";
     return (
       <Comp
-        className={cn(gradientButtonVariants({ variant, className }))}
+        className={cn(gradientButtonVariants({ variant }), className)}
         ref={ref}
         {...props}
       />

@@ -5,7 +5,7 @@ import React from "react";
 import logo from "@/public/website/harmonia-logo.svg";
 import GradientText from "@/components/ui/gradient-text";
 import ShinyText from "@/components/ui/shiny-text";
-import { GradientButton } from "../components/gradient-button";
+import { ButtonHarmonia } from "../components/button-harmonia-subscribe";
 
 const HarmoniaPage = () => {
   return (
@@ -28,9 +28,7 @@ const HarmoniaPage = () => {
                 speed={3}
                 className="lg:w-[350px] text-balance"
               />
-              <GradientButton variant="variant">
-                ⚡️ Claim your spot now
-              </GradientButton>
+              <ButtonHarmonia />
             </div>
           </div>
           <video width="320" height="240" autoPlay loop className="rounded-2xl">

@@ -3,7 +3,7 @@ import { HeroHeader } from "../components/hero-header";
 
 
 export const metadata: Metadata = {
-  title: "WheelBox |Team Of Wheelbox",
+  title: "WheelBox | Works",
   description:
     "Startup Cianjur - WheelBox, a startup based in Cianjur, Indonesia, focusing on innovation and technology.",
   keywords: [

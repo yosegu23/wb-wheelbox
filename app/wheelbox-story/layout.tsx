@@ -4,7 +4,7 @@ import { HeroHeader } from "../components/hero-header";
 
 
 export const metadata: Metadata = {
-  title: "WheelBox |Team Of Wheelbox",
+  title: "WheelBox | Story",
   description:
     "Startup Cianjur - WheelBox, a startup based in Cianjur, Indonesia, focusing on innovation and technology.",
   keywords: [
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function CoreValuesLayout({
+export default function WheelboxStoryLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

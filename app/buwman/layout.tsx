@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { HeroHeader } from "../components/hero-header";
 
 export const metadata: Metadata = {
-  title: "WheelBox | Web & Mobile App",
+  title: "WheelBox | Buwman",
   description:
     "Startup Cianjur - WheelBox, a startup based in Cianjur, Indonesia, focusing on innovation and technology.",
   keywords: [
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function CustomAppLayout({
+export default function BuwmanLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

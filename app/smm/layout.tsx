@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { HeroHeader } from "../components/hero-header";
 
 export const metadata: Metadata = {
-  title: "WheelBox |Modern Landing Page",
+  title: "WheelBox | Social Media Management",
   description:
     "Startup Cianjur - WheelBox, a startup based in Cianjur, Indonesia, focusing on innovation and technology.",
   keywords: [
