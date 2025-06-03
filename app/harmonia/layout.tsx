@@ -22,8 +22,7 @@ export default function HarmoniaLayout({
   return (
     <>
       <HeroHeader />
-      
-        <div className="w-full h-full flex justify-center items-center">
+        <div className="w-full h-full flex justify-center items-center p-6 lg:p-0">
           {children}
         </div>
     </>

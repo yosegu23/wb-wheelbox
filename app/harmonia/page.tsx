@@ -10,7 +10,7 @@ import { ButtonHarmonia } from "../components/button-harmonia-subscribe";
 const HarmoniaPage = () => {
   return (
     <>
-      <div className="w-full h-screen flex flex-col items-center justify-center gap-4">
+      <div className="w-full h-screen flex flex-col items-center justify-center gap-4 p-6 lg:p-0">
         <Image src={logo} alt="Harmonia Logo" width={200} height={50} />
         <div className="flex flex-col items-start justify-center gap-1 lg:gap-3 lg:flex-row-reverse">
           <div className="flex flex-col items-start justify-center lg:gap-4 lg:pt-4">

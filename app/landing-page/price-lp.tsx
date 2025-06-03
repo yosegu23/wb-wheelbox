@@ -1,4 +1,5 @@
 import { CheckIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function PriceLandingPage() {
   return (
@@ -33,8 +34,14 @@ export default function PriceLandingPage() {
                   <FeatureItem>UI/UX Design 1 Page</FeatureItem>
                   <FeatureItem>Responsive Design</FeatureItem>
                 </ul>
+
                 <PricingButton noCardRequired={true}>
-                  Choose Plan
+                  <Link
+                    target="_blank"
+                    href="https://wa.me/62895335181400?text=I'm%20interested%20in%20landing-page%20service%20for%20package%20of%20solo
+">
+                    Choose Plan
+                  </Link>
                 </PricingButton>
               </div>
             </div>
@@ -47,8 +54,7 @@ export default function PriceLandingPage() {
                   "url('/background-image/advanced-gradient.jpg')",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
-              }}
-            >
+              }}>
               <div className="h-full bg-white dark:bg-neutral-900 rounded-2xl">
                 <div
                   className="p-12"
@@ -57,8 +63,7 @@ export default function PriceLandingPage() {
                       "url('/background-image/advanced-gradient.jpg')",
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
-                  }}
-                >
+                  }}>
                   <div className="pr-9">
                     <h4 className="mb-6 text-6xl text-white tracking-tighter">
                       Startup
@@ -82,7 +87,12 @@ export default function PriceLandingPage() {
                     <FeatureItem>Intergrated With Email</FeatureItem>
                   </ul>
                   <PricingButton noCardRequired={true}>
-                    Choose Plan
+                    <Link
+                      target="_blank"
+                      href="https://wa.me/62895335181400?text=I'm%20interested%20in%20landing-page%20service%20for%20package%20of%20startup
+">
+                      Choose Plan
+                    </Link>
                   </PricingButton>
                 </div>
               </div>
@@ -103,7 +113,14 @@ export default function PriceLandingPage() {
                 </div>
               </div>
               <div className="p-12 pb-11">
-                <PricingButton>Contact sales</PricingButton>
+                <PricingButton>
+                  <Link
+                    target="_blank"
+                    href="https://wa.me/62895335181400?text=I'm%20interested%20in%20landing-page%20service%20for%20package%20of%cutomize
+">
+                    Contact sales
+                  </Link>
+                </PricingButton>
               </div>
             </div>
           </div>
@@ -128,7 +145,7 @@ const PricingButton = ({
 
   noCardRequired,
 }: {
-  children: string;
+  children: React.ReactNode;
   href?: string;
   noCardRequired?: boolean;
 }) => {
@@ -136,8 +153,7 @@ const PricingButton = ({
     <>
       <a
         className="inline-block px-5 py-4 w-full text-center  font-semibold tracking-tight bg-transparent hover:bg-neutral-900 hover:text-white border dark:hover:bg-white dark:hover:text-neutral-800 hover:scale-105 border-neutral-700 rounded-lg transition duration-200"
-        href={href ?? ""}
-      >
+        href={href ?? ""}>
         {children}
       </a>
       {noCardRequired && (

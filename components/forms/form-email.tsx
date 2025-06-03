@@ -58,9 +58,10 @@ const FormEmail = () => {
             control={form.control}
             name="email"
             render={({ field }) => (
+              
               <FormItem>
                 <FormControl>
-                  <div className="relative w-full">
+                  <div className="relative w-full z-50">
                     <Input
                       {...field}
                       id="input-19"
