@@ -10,6 +10,29 @@ import { HeroHeader } from "../components/hero-header";
 import { WordRotate } from "@/components/magicui/word-rotate";
 import { useTheme } from "next-themes";
 import { Waves } from "@/components/ui/waves-background";
+import BtnGetStarted from "./get-started";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { formSchema } from "@/zod/schema";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+} from "@/components/ui/form";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
+import { sendEmail } from "@/actions/getClient";
+import toast from "react-hot-toast";
 
 const transitionVariants = {
   item: {
@@ -33,6 +56,36 @@ const transitionVariants = {
 
 export default function HeroSection() {
   const { theme } = useTheme();
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
+
+  const form = useForm<z.infer<typeof formSchema>>({
+      resolver: zodResolver(formSchema),
+      defaultValues: {
+        name: "",
+        email: "",
+        description: "",
+      },
+    });
+  
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+    const sendPromise = toast.promise(
+      sendEmail(values),
+      {
+        loading: 'Sending...',
+        success: (data) => {
+          if (!data.success) throw new Error(data.error);
+          form.reset();
+          setIsSheetOpen(false);
+          return <b>Email sent successfully!</b>;
+        },
+        error: (err) => {
+          return <b>{err.message || "Could not send email."}</b>;
+        },
+      }
+    );
+  
+    await sendPromise;
+  }
 
   return (
     <>
@@ -134,6 +187,111 @@ export default function HeroSection() {
                     ...transitionVariants,
                   }}
                   className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
+                  <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+                    <SheetTrigger asChild>
+                      <BtnGetStarted />
+                    </SheetTrigger>
+                    <SheetContent
+                      side="top"
+                      className="w-screen rounded-b-3xl transition py-2 flex flex-col lg:flex-row">
+                      <SheetHeader className="w-full">
+                        <SheetTitle>
+                          <div>
+                            <h1 className="text-6xl">Hey!</h1>
+                            <h3 className="text-3xl">Tell us all the things</h3>
+                          </div>
+                        </SheetTitle>
+                        <div>
+                          <Form {...form}>
+                            <form
+                              onSubmit={form.handleSubmit(onSubmit)}
+                              className="space-y-8">
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <FormField
+                                  control={form.control}
+                                  name="name"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel>Name & Company</FormLabel>
+                                      <FormControl>
+                                        <Input
+                                          placeholder="Alex from Google"
+                                          {...field}
+                                        />
+                                      </FormControl>
+                                    </FormItem>
+                                  )}
+                                />
+                                <FormField
+                                  control={form.control}
+                                  name="email"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel>Email</FormLabel>
+                                      <FormControl>
+                                        <Input
+                                          placeholder="alex@google.com"
+                                          {...field}
+                                        />
+                                      </FormControl>
+                                    </FormItem>
+                                  )}
+                                />
+                              </div>
+
+                              <FormField
+                                control={form.control}
+                                name="description"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>
+                                      Tell us more about your need.
+                                    </FormLabel>
+                                    <FormControl>
+                                      <Textarea
+                                        placeholder="Something about your great idea"
+                                        {...field}
+                                      />
+                                    </FormControl>
+                                  </FormItem>
+                                )}
+                              />
+
+                              <div className="flex justify-between items-center">
+                                <span>Our Email dev.wheelbox@gmail.com</span>
+                                <button
+                                  type="submit"
+                                  className="flex justify-center gap-2 items-center shadow-xl text-lg bg-black backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group">
+                                  Explore
+                                  <svg
+                                    className="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-white ease-linear duration-300 rounded-full border border-white group-hover:border-none p-2 rotate-45"
+                                    viewBox="0 0 16 19"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                                      className="fill-white group-hover:fill-gray-800"
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
+                            </form>
+                          </Form>
+                        </div>
+                      </SheetHeader>
+                      <div className="hidden lg:flex items-center justify-center lg:w-[50%]">
+                        {/* Video GIF */}
+                        <video
+                          width="320"
+                          height="240"
+                          autoPlay
+                          loop
+                          className="rounded-2xl">
+                          <source src="/website/poster.mp4" type="video/mp4" />
+                        </video>
+                      </div>
+                    </SheetContent>
+                  </Sheet>
+
                   <Button
                     key={2}
                     asChild

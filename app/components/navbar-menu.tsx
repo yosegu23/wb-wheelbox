@@ -17,7 +17,7 @@ import {
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Harmonia",
-    href: "/docs/primitives/alert-dialog",
+    href: "/harmonia",
     description:
       "A collaboration platform for venture-backed companies, making it easier to work together without time and location constraints.",
   },
