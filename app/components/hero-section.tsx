@@ -197,8 +197,8 @@ export default function HeroSection() {
                       <SheetHeader className="w-full">
                         <SheetTitle>
                           <div>
-                            <h1 className="text-6xl">Hey!</h1>
-                            <h3 className="text-3xl">Tell us all the things</h3>
+                            <h3 className="text-6xl">Hey!</h3>
+                            <span className="text-3xl">Tell us all the things</span>
                           </div>
                         </SheetTitle>
                         <div>
