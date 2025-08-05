@@ -27,19 +27,19 @@ const links = [
   {
     title: "About",
     items: [
-      { href: "/app/teams", label: "Teams" },
-      { href: "/app/purpose", label: "Vision & Mission" },
-      { href: "/app/core-values", label: "Core Values" },
-      { href: "/app/wheelboxstory", label: "Wheelbox Story" },
+      { href: "https://www.wheelbox.tech/teams", label: "Teams" },
+      { href: "https://www.wheelbox.tech/purpose", label: "Vision & Mission" },
+      { href: "https://www.wheelbox.tech/core-values", label: "Core Values" },
+      { href: "https://www.wheelbox.tech/wheelboxstory", label: "Wheelbox Story" },
     ],
   },
   {
     title: "Services",
     items: [
-      { href: "/app/landing-page", label: "Modern Landing Page" },
-      { href: "/app/custom-app", label: "Web App & Mobile App Custom" },
-      { href: "/app/smm", label: "Social Media Management" },
-      { href: "/app/creative-brands", label: "Creative Brands" },
+      { href: "https://www.wheelbox.tech/landing-page", label: "Modern Landing Page" },
+      { href: "https://www.wheelbox.tech/custom-app", label: "Web App & Mobile App Custom" },
+      { href: "https://www.wheelbox.tech/smm", label: "Social Media Management" },
+      { href: "https://www.wheelbox.tech/creative-brands", label: "Creative Brands" },
     ],
   },
   {
@@ -59,7 +59,7 @@ export function Content() {
       <div className="grid md:grid-cols-3 grid-cols-1 gap-20 py-14">
       {links.map((section) => (
         <div key={section.title} className="flex flex-col gap-2">
-          <h3 className="mb-2 uppercase text-white">{section.title}</h3>
+          <h3 className="mb-2 uppercase text-neutral-900 dark:text-white">{section.title}</h3>
           {section.items.map((link) => (
             <motion.div
               key={link.href}
@@ -69,7 +69,7 @@ export function Content() {
               <Link
                 href={link.href}
                 target="_blank"
-                className="relative inline-block text-white"
+                className="relative inline-block text-neutral-900 dark:text-white"
               >
                 <span className="after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1.5px] after:bg-neutral-500 after:transition-all after:duration-300 hover:after:w-full">
                   {link.label}

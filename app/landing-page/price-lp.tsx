@@ -65,13 +65,13 @@ export default function PriceLandingPage() {
                     backgroundSize: "cover",
                   }}>
                   <div className="pr-9">
-                    <h4 className="mb-6 text-6xl text-white tracking-tighter">
+                    <h4 className="mb-6 text-6xl dark:text-white text-neutral-900 tracking-tighter">
                       Startup
                     </h4>
-                    <p className="mb-2 text-xl text-white font-semibold tracking-tighter">
+                    <p className="mb-2 text-xl dark:text-white text-neutral-900 font-semibold tracking-tighter">
                       5,000,000 IDR / $307,08
                     </p>
-                    <p className="text-white tracking-tight">
+                    <p className="dark:text-white text-neutral-900 tracking-tight">
                       The ideal plan for larger businesses who require heavy
                       usage.
                     </p>

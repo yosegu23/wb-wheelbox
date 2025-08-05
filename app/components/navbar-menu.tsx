@@ -16,6 +16,12 @@ import {
 
 const components: { title: string; href: string; description: string }[] = [
   {
+    title: "Qitend",
+    href: "http://wb-qitend.vercel.app/",
+    description:
+      "Qitend is a smart QR attendance system with AI-generated codes and real-time check-in tracking—perfect for modern, seamless event management.",
+  },
+  {
     title: "Harmonia",
     href: "/harmonia",
     description:

@@ -56,6 +56,7 @@ const mobileMenu = [
   {
     title: "Products",
     items: [
+      { title: "Qitend", href: "https://wb-qitend.vercel.app/" },
       { title: "Harmonia", href: "/docs/primitives/alert-dialog" },
       { title: "Bowman", href: "/docs/primitives/hover-card" },
       { title: "Uplusbe", href: "/docs/primitives/progress" },
